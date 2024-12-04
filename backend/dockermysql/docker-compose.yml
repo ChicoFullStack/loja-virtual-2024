@@ -1,0 +1,19 @@
+
+services:
+  db:
+    image: mysql
+    volumes:
+      - dbbase:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: bp1234
+      MYSQL_DATABASE: db_loja
+
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - 8000:80
+
+volumes:
+  dbbase:
