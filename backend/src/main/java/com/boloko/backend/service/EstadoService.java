@@ -13,28 +13,28 @@ import com.boloko.backend.repository.EstadoRepository;
 public class EstadoService {
 
     @Autowired
-    private EstadoRepository estadoRepository;
+    private EstadoRepository repo;
 
     public List<Estado> buscaTodos() {
-        return estadoRepository.findAll();
+        return repo.findAll();
     }
 
     public Estado inserir(Estado obj) {
         obj.setDataCriacao(new Date());
-        Estado objNovo = estadoRepository.saveAndFlush(obj);
+        Estado objNovo = repo.saveAndFlush(obj);
         return objNovo;
 
     }
 
     public Estado alterar(Estado obj) {
         obj.setDataAtualizacao(new Date());
-        return estadoRepository.saveAndFlush(obj);
+        return repo.saveAndFlush(obj);
 
     }
 
     public void excluir(Long id) {
-        Estado obj = estadoRepository.findById(id).get();
-        estadoRepository.delete(obj);        
+        Estado obj = repo.findById(id).get();
+        repo.delete(obj);        
     }
 
 }
