@@ -16,33 +16,32 @@ import org.springframework.web.bind.annotation.RestController;
 import com.boloko.backend.entity.Estado;
 import com.boloko.backend.service.EstadoService;
 
-import jakarta.websocket.server.PathParam;
 
 @RestController
 @RequestMapping("/api/estado")
 public class EstadoController {
 
     @Autowired
-    private EstadoService estadoService;
+    private EstadoService service;
 
     @GetMapping("/")
     public List<Estado> buscarTodos(){
-        return estadoService.buscaTodos();
+        return service.buscaTodos();
     }
 
     @PostMapping("/")
     public Estado inserir(@RequestBody Estado obj){
-        return estadoService.inserir(obj);
+        return service.inserir(obj);
     }
 
     @PutMapping("/")
     public Estado alterar(@RequestBody Estado obj){
-        return estadoService.alterar(obj);
+        return service.alterar(obj);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable("id") Long id){
-        estadoService.excluir(id);
+        service.excluir(id);
         return ResponseEntity.ok().build();
     }
 
