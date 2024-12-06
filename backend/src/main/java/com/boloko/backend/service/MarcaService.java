@@ -6,34 +6,34 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.boloko.backend.entity.Estado;
-import com.boloko.backend.repository.EstadoRepository;
+import com.boloko.backend.entity.Marca;
+import com.boloko.backend.repository.MarcaRepository;
 
 @Service
-public class EstadoService {
+public class MarcaService {
 
     @Autowired
-    private EstadoRepository repo;
+    private MarcaRepository repo;
 
-    public List<Estado> buscaTodos() {
+    public List<Marca> buscaTodos() {
         return repo.findAll();
     }
 
-    public Estado inserir(Estado obj) {
+    public Marca inserir(Marca obj) {
         obj.setDataCriacao(new Date());
-        Estado objNovo = repo.saveAndFlush(obj);
+        Marca objNovo = repo.saveAndFlush(obj);
         return objNovo;
 
     }
 
-    public Estado alterar(Estado obj) {
+    public Marca alterar(Marca obj) {
         obj.setDataAtualizacao(new Date());
         return repo.saveAndFlush(obj);
 
     }
 
     public void excluir(Long id) {
-        Estado obj = repo.findById(id).get();
+        Marca obj = repo.findById(id).get();
         repo.delete(obj);        
     }
 

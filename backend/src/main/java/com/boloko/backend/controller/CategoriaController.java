@@ -13,29 +13,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.boloko.backend.entity.Estado;
-import com.boloko.backend.service.EstadoService;
+import com.boloko.backend.entity.Categoria;
+import com.boloko.backend.service.CategoriaService;
 
 
 @RestController
-@RequestMapping("/api/estado")
-public class EstadoController {
+@RequestMapping("/api/categoria")
+public class CategoriaController {
 
     @Autowired
-    private EstadoService service;
+    private CategoriaService service;
 
     @GetMapping("/")
-    public List<Estado> buscarTodos(){
+    public List<Categoria> buscarTodos(){
         return service.buscaTodos();
     }
 
     @PostMapping("/")
-    public Estado inserir(@RequestBody Estado obj){
+    public Categoria inserir(@RequestBody Categoria obj){
         return service.inserir(obj);
     }
 
     @PutMapping("/")
-    public Estado alterar(@RequestBody Estado obj){
+    public Categoria alterar(@RequestBody Categoria obj){
         return service.alterar(obj);
     }
 

@@ -13,29 +13,29 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.boloko.backend.entity.Estado;
-import com.boloko.backend.service.EstadoService;
+import com.boloko.backend.entity.Marca;
+import com.boloko.backend.service.MarcaService;
 
 
 @RestController
-@RequestMapping("/api/estado")
-public class EstadoController {
+@RequestMapping("/api/marca")
+public class MarcaController {
 
     @Autowired
-    private EstadoService service;
+    private MarcaService service;
 
     @GetMapping("/")
-    public List<Estado> buscarTodos(){
+    public List<Marca> buscarTodos(){
         return service.buscaTodos();
     }
 
     @PostMapping("/")
-    public Estado inserir(@RequestBody Estado obj){
+    public Marca inserir(@RequestBody Marca obj){
         return service.inserir(obj);
     }
 
     @PutMapping("/")
-    public Estado alterar(@RequestBody Estado obj){
+    public Marca alterar(@RequestBody Marca obj){
         return service.alterar(obj);
     }
 
